@@ -1,0 +1,3 @@
+### widgets
+Folder containing all the widgets of the application. For example the list item widget of the
+password items list, etc...
