@@ -23,8 +23,10 @@ class _HomeState extends State<Home> {
         builder: (context, snapshot, child) {
           final List<CredentialData> list = snapshot.credentialListFeature;
           if (list.isEmpty) {
-            return const Text(
-              'You do not have any credentials yet!',
+            return const Center(
+              child: Text(
+                'You do not have any credentials yet!',
+              ),
             );
           }
           return ListView.builder(

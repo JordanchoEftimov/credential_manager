@@ -3,7 +3,7 @@ import 'package:encrypt/encrypt.dart';
 class CustomEncrypter {
   static late Encrypter encrypter;
   static late IV iv;
-  static const String _password = "ABC31234ABC31234";
+  static const String _password = "ASDFHEFDHTGDAFGH";
 
   static void init() {
     final key = Key.fromUtf8(_password);

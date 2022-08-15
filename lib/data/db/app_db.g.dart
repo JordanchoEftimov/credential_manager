@@ -11,7 +11,7 @@ class CredentialData extends DataClass implements Insertable<CredentialData> {
   final int id;
   final String name;
   final String username;
-  late final String password;
+  late String password;
   CredentialData(
       {required this.id,
       required this.name,
