@@ -1,5 +1,6 @@
 import 'package:credential_manager/data/db/app_db.dart';
 import 'package:credential_manager/notifier/credential_change_notifier.dart';
+import 'package:credential_manager/services/encrypter.dart';
 import 'package:credential_manager/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:drift/drift.dart' as drift;
@@ -80,7 +81,7 @@ class _AddCredentialState extends State<AddCredential> {
       final entity = CredentialCompanion(
         name: drift.Value(_nameController.text),
         username: drift.Value(_usernameController.text),
-        password: drift.Value(_passwordController.text),
+        password: drift.Value(CustomEncrypter.encrypt(_passwordController.text)),
       );
       Provider.of<CredentialChangeNotifier>(context, listen: false).insertCredentialFeature(entity).then(
             (value) => {

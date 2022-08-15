@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:credential_manager/data/entity/credential.dart';
+import 'package:credential_manager/services/encrypter.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
@@ -25,8 +26,11 @@ class AppDb extends _$AppDb {
   int get schemaVersion => 1;
 
   Future<CredentialData> getCredential(int id) async {
-    return await (select(credential)..where((tbl) => tbl.id.equals(id)))
+    CredentialData credentialData = await (select(credential)
+      ..where((tbl) => tbl.id.equals(id)))
         .getSingle();
+    credentialData.password = CustomEncrypter.decrypt(credentialData.password);
+    return credentialData;
   }
 
   Future<int> insertCredential(CredentialCompanion entity) async {
@@ -38,10 +42,15 @@ class AppDb extends _$AppDb {
   }
 
   Future<int> deleteCredential(int id) async {
-    return await (delete(credential)..where((tbl) => tbl.id.equals(id))).go();
+    return await (delete(credential)
+      ..where((tbl) => tbl.id.equals(id))).go();
   }
 
   Future<List<CredentialData>> getCredentials() async {
-    return await select(credential).get();
+    var item = await select(credential).get();
+    return item.map((e) {
+      e.password = CustomEncrypter.decrypt(e.password);
+      return e;
+    }).toList();
   }
 }
