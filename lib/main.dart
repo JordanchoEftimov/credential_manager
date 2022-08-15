@@ -1,7 +1,24 @@
+import 'package:credential_manager/data/db/app_db.dart';
+import 'package:credential_manager/notifier/credential_change_notifier.dart';
+import 'package:credential_manager/themes/custom_theme.dart';
+import 'package:credential_manager/utilities/router/router.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider.value(value: AppDb()),
+        ChangeNotifierProxyProvider<AppDb, CredentialChangeNotifier>(
+          create: (context) => CredentialChangeNotifier(),
+          update: (context, db, notifier) => notifier!..initAppDb(db)..getCredentialsFeature(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +28,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Credential Manager',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      theme: CustomTheme.redTheme,
       debugShowCheckedModeBanner: false,
+      initialRoute: RouterGenerator.homeRoute,
+      onGenerateRoute: RouterGenerator.generateRoute,
     );
   }
 }
