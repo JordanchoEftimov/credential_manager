@@ -3,7 +3,6 @@ import 'package:credential_manager/notifier/credential_change_notifier.dart';
 import 'package:credential_manager/themes/custom_theme.dart';
 import 'package:credential_manager/utilities/router/router.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 void main() {
