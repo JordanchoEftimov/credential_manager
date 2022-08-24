@@ -45,7 +45,8 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'add_credential');
+          // TODO: Change route here
+          Navigator.pushNamed(context, 'pin_screen');
         },
         child: const Icon(
           Icons.add,
