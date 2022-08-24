@@ -1,4 +1,5 @@
 import 'package:credential_manager/screens/add_credential.dart';
+import 'package:credential_manager/screens/biometrics_sceen.dart';
 import 'package:credential_manager/screens/edit_credential.dart';
 import 'package:credential_manager/screens/home.dart';
 import 'package:credential_manager/screens/pin_screen.dart';
@@ -10,6 +11,10 @@ class RouterGenerator {
     final args = settings.arguments;
 
     switch (settings.name) {
+      case 'biometrics_screen':
+        return MaterialPageRoute(
+          builder: (_) => const BiometricsScreen(),
+        );
       case 'pin_screen':
         return MaterialPageRoute(
           builder: (_) => const PinScreen(),
@@ -45,7 +50,7 @@ class RouterGenerator {
     }
   }
 
-  static String homeRoute = 'pin_screen';
+  static String homeRoute = 'biometrics_screen';
 
   static Route<dynamic> _error() {
     return MaterialPageRoute(
