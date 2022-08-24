@@ -29,7 +29,9 @@ class _PinScreenState extends State<PinScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Authenticate'),
+        title: const Text(
+          'Authenticate',
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -39,7 +41,9 @@ class _PinScreenState extends State<PinScreen> {
             children: [
               const Text(
                 'Please enter your Pin:',
-                style: TextStyle(fontSize: 22),
+                style: TextStyle(
+                  fontSize: 22,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -62,12 +66,16 @@ class _PinScreenState extends State<PinScreen> {
                     onPressed: () => _clickNumPadButton(val),
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(
+                          50.0,
+                        ),
                       ),
                     ),
                     child: Text(
                       val,
-                      style: const TextStyle(fontSize: 25),
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                   );
                 }),
@@ -77,30 +85,41 @@ class _PinScreenState extends State<PinScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50.0),
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        50.0,
                       ),
                     ),
-                    child: const Icon(Icons.check)),
+                  ),
+                  child: const Icon(
+                    Icons.check,
+                  ),
+                ),
                 OutlinedButton(
                   onPressed: () => _clickNumPadButton("0"),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(
+                        50.0,
+                      ),
                     ),
                   ),
                   child: const Text(
                     '0',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(
+                      fontSize: 25,
+                    ),
                   ),
                 ),
                 OutlinedButton(
                   onPressed: () => _deleteFromPin(),
                   style: OutlinedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
+                      borderRadius: BorderRadius.circular(
+                        50.0,
+                      ),
                     ),
                   ),
                   child: const Icon(
