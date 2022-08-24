@@ -45,7 +45,7 @@ class RouterGenerator {
     }
   }
 
-  static String homeRoute = 'home';
+  static String homeRoute = 'pin_screen';
 
   static Route<dynamic> _error() {
     return MaterialPageRoute(
